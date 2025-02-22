@@ -1,5 +1,6 @@
 # app.py
 # This is a test commit
+# This is dummy commit to check git actions
 def add(a, b):
     return a + b
 
