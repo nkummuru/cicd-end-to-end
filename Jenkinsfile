@@ -52,13 +52,14 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'git-cred', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         sh '''
                         cat deploy.yaml
-                        sed -i "s/:v/:${BUILD_NUMBER}/g" deploy.yaml
+                        #sed -i "s//:${BUILD_NUMBER}/g" deploy.yaml
                         cat deploy.yaml
                         git add deploy.yaml
-                        git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
+                        #git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
                         git remote -v
-			git remote set-url origin "https://$GIT_USERNAME:$GIT_PASSWORD@github.com/nkummuru/cicd-demo-manifests-repo.git"
-                        git push https://github.com/nkummuru/cicd-demo-manifests-repo.git HEAD:main
+			#git remote set-url origin "https://$GIT_USERNAME:$GIT_PASSWORD@github.com/nkummuru/cicd-demo-manifests-repo.git"
+			#git push
+                        #git push https://github.com/nkummuru/cicd-demo-manifests-repo.git HEAD:main
                         '''                        
                     }
                 }
